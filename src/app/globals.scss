@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color:  #E6E6E8;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 2.2vh;
+}
+
+.primary {
+  color: #343EC2;
+  background-color: #343EC233;
+}
+
+.secondary {
+  color: #181D1F80;
+  background-color: #181D1F1A;
+}
+
+.ag-theme-quartz {
+  .ag-header-cell-text {
+    font-weight: 700;
+  }
+  .ag-root-wrapper {
+    border-radius: 24px 24px 0 0;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background: #F8F8F8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #B8B8B8;
+    border-radius: 8px;
+  }
+}

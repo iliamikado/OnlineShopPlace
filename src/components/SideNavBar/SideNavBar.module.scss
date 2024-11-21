@@ -1,0 +1,72 @@
+.sideNavBar {
+    flex-shrink: 0;
+    height: 100%;
+    border-radius: 0 24px 24px 0;
+    background-color: #FFFFFF;
+    padding: 24px 0 24px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+
+    transition: width 1s;
+    overflow: hidden;
+}
+
+.closed {
+    width: 80px;
+}
+
+.opened {
+    width: 200px;
+}
+
+.titleAndButton {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 26px;
+    color: #3F415A;
+    padding: 0 10px 0 10px;
+    margin-bottom: 30px;
+    button {
+        height: 30px;
+    }
+    span {
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.linkItem {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 2.2vh;
+    color: #181D1FBF;
+    .linkIcon {
+        flex-shrink: 0;
+        position: relative;
+        height: 3.3vh;
+        width: 3.3vh;
+    }
+    span {
+        width: 110px;
+    }
+}
+
+.linkItemOpened {
+    justify-content: start;
+    padding-left: 28px;
+}
