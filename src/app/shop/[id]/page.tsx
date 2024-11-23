@@ -5,6 +5,7 @@ import styles from './page.module.scss'
 import { Shop } from '@/service/models'
 import { getShop } from '@/service/service'
 import { useParams } from 'next/navigation'
+import { ShopCard } from '@/components/ShopCard/ShopCard'
 
 export default function Page() {
 
@@ -22,8 +23,9 @@ export default function Page() {
 
     return <main className={styles.main}>
         <div className={styles.backAndHeader}>
-            <span>Магазины /</span>
-            <span>{shop?.name}</span>
+            <span className={styles.shopsLabel}>Магазины / </span>
+            <span className={styles.name}><b>{shop.name}</b></span>
         </div>
+        <ShopCard shop={shop} />
     </main>
 }

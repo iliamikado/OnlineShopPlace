@@ -16,7 +16,7 @@ export function getShop(id: string): Promise<Shop | undefined> {
 const shops: Shop[] = [
     {
         id: '1',
-        name: 'aaa',
+        name: 'Магазин 1',
         place: 'Market',
         status: 'Статус',
         managers: ['aaa', 'bbb'],

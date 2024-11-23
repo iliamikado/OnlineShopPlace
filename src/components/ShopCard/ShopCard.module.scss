@@ -1,0 +1,29 @@
+.shopCard {
+    width: calc(100% - 100px);
+}
+
+.innerContainer {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    flex-direction: column;
+    gap: 12px;
+
+    font-weight: 500;
+    color: #181D1F;
+    font-size: 1.66vh;
+}
+
+.lineCont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label {
+    font-weight: 500;
+    color: #181D1F80;
+    font-size: 1.5vh;
+    margin-right: 10px;
+}
