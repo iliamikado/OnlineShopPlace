@@ -9,17 +9,17 @@ import { getShops } from '@/service/service';
 import { Shop } from '@/service/models';
 import cn from 'classnames';
 import styles from './ShopsTable.module.scss';
-import { useRouter } from 'next/navigation';
+import 'ag-grid-enterprise';
+import Link from 'next/link';
 
 export const ShopTable = () => {
     const [rowData, setRowData] = useState<Shop[]>([]);
-    const router = useRouter();
     
     const [colDefs] = useState<ColDef[]>([
-        { headerName: 'Название', field: "name", rowDrag: true, flex: 1 },
+        { headerName: 'Название', field: "name", rowDrag: true, flex: 1, cellRenderer: LinkToShop, enableRowGroup: false},
         { headerName: 'Площадка', field: "place" },
         { headerName: 'Статус', field: "status" },
-        { headerName: 'Управляющие', field: "managers", valueFormatter: ({value}) => (value.join(', ')) },
+        { headerName: 'Управляющие', field: "managers", valueFormatter: ({value}) => (value ? value.join(', ') : '') },
         { headerName: 'Юридическое лицо', field: "legalPerson", flex: 1 }
     ]);
 
@@ -34,12 +34,21 @@ export const ShopTable = () => {
         // wrapping container with theme & size
         <div className={cn("ag-theme-quartz", styles.tableDiv)}>
             <AgGridReact
-                defaultColDef={{floatingFilter: true, filter: true}}
+                defaultColDef={{floatingFilter: true, filter: true, enableRowGroup: true}}
+                rowGroupPanelShow='always'
                 rowData={rowData}
                 columnDefs={colDefs}
                 rowDragManaged={true}
-                onRowClicked={({data}) => {router.push(`/shop/${data.id}`)}}
             />
         </div>
-       )  
+    )  
+}
+
+const LinkToShop = ({data}: {data: Shop}) => {
+    if (!data) {
+        return null;
+    }
+    return <Link href={`/shop/${data.id}`}>
+        {data.name}
+    </Link>
 }

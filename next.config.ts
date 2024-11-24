@@ -1,8 +1,14 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
+  reactStrictMode: false,
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
+  },
+  // eslint-disable-next-line
   webpack(config: any) {
     // Grab the existing rule that handles SVG imports
+    // eslint-disable-next-line
     const fileLoaderRule = config.module.rules.find((rule: any) => rule.test?.test?.('.svg'));
 
     config.module.rules.push(

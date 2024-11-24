@@ -4,7 +4,7 @@ import BellIcon from '@/../public/bell.svg';
 import ChevronIcon from '@/../public/chevron-right.svg';
 
 export const Header = () => {
-    return <header className={styles.header}>
+    return <header className={styles.mainHeader}>
         <button>
             <BellIcon className={styles.bell}/>
         </button>

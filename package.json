@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node ./fixEnterprise.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "ag-grid-enterprise": "^32.3.3",
     "ag-grid-react": "^32.3.3",
     "classnames": "^2.5.1",
     "next": "15.0.3",
