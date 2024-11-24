@@ -12,6 +12,8 @@
 
     transition: width 1s;
     overflow: hidden;
+
+    color: #181D1FBF;
 }
 
 .closed {
@@ -34,6 +36,10 @@
     margin-bottom: 30px;
     button {
         height: 30px;
+        svg {
+            height: 30px;
+            width: 30px;
+        }
     }
     span {
         overflow-x: hidden;
@@ -46,7 +52,8 @@
 }
 
 .linkItem {
-    width: 100%;
+    width: auto;
+    padding: 5px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -54,19 +61,18 @@
     gap: 8px;
     font-weight: 500;
     font-size: 2.2vh;
-    color: #181D1FBF;
-    .linkIcon {
+    svg {
         flex-shrink: 0;
-        position: relative;
         height: 3.3vh;
         width: 3.3vh;
     }
     span {
         width: 110px;
     }
+    border-radius: 16px;
+    padding: 10px;
 }
 
 .linkItemOpened {
     justify-content: start;
-    padding-left: 28px;
 }

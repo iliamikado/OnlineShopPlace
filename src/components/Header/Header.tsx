@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import styles from './Header.module.scss'
+import BellIcon from '@/../public/bell.svg';
+import ChevronIcon from '@/../public/chevron-right.svg';
 
 export const Header = () => {
     return <header className={styles.header}>
         <button>
-            <Image src="/person.svg" width={30} height={30} alt="notifications"/>
+            <BellIcon className={styles.bell}/>
         </button>
         <div className={styles.userCard}>
             <div className={styles.profileIcon}>
@@ -15,10 +17,7 @@ export const Header = () => {
                 <span className={styles.email}>thisisemail@mail.mail</span>
             </div>
             <button className={styles.arrowDown}>
-                <Image src="/chevron-right.svg"
-                    fill
-                    alt="more about user"
-                />
+                <ChevronIcon/>
             </button>
         </div>
     </header>
