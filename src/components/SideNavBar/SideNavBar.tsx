@@ -3,9 +3,8 @@
 import cn from 'classnames';
 
 import styles from "./SideNavBar.module.scss";
-import Image from 'next/image'
 import Link from 'next/link';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import ChevronRight from '@/../public/chevron-right.svg';
 import AnalIcon from '@/../public/analitics.svg';
 import CardsIcon from '@/../public/cards.svg';
@@ -51,7 +50,7 @@ function checkPath(path: string, url: string): boolean {
 }
 
 interface LinkItem {
-    icon: any
+    icon: ReactNode
     title: string
     href: string
 }

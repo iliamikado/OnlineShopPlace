@@ -13,14 +13,15 @@ export default function Page() {
 
     const [shop, setShop] = useState<Shop | undefined>(undefined)
     const params = useParams<{id: string}>();
+    useEffect(() => {
+        if (params.id != 'new_shop') {  
+            getShop(params.id).then((s) => {setShop(s)})
+        }
+    })
 
     if (params.id == 'new_shop') {
         return <View mode='create' shop={emptyShop()}/>
     }
-
-    useEffect(() => {
-        getShop(params.id).then((s) => {setShop(s)})
-    })
 
     if (!shop) {
         return <main>
