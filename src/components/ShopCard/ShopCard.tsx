@@ -1,34 +1,80 @@
 import { Shop } from '@/service/models'
 import styles from './ShopCard.module.scss'
 import cn from 'classnames';
+import EyeIcon from '@/../public/eye.svg';
+import EditIcon from '@/../public/pencil.svg';
+import { useState } from 'react';
+import { changeShop, createNewShop } from '@/service/service';
 
+type Mode = ('view' | 'edit' | 'create')
 interface Props {
-    shop: Shop
+    shop: Shop,
+    mode?: Mode
 }
 
-export const ShopCard = ({shop}: Props) => {
+export const ShopCard = ({shop, mode = 'view'}: Props) => {
+    const [visToken, setVisToken] = useState(false);
+    const [visClientID, setVisClientID] = useState(false);
+    const [currentMode, setCurrentMode] = useState<Mode>(mode);
+    const [currentShop, setCurrentShop] = useState<Shop>(shop);
+    shop = currentShop;
+
     return <div className={cn('card', styles.shopCard)}>
         <div className={styles.innerContainer}>
             <div className={styles.lineCont}>
-                <h2>{shop.name}</h2>
-                <button>a</button>
+                {currentMode == 'view' ?
+                    <>
+                        <h2>{shop.name}</h2>
+                        <button onClick={() => {setCurrentMode('edit')}}>
+                            <EditIcon className={styles.editIcon}/>
+                        </button>
+                    </>
+                    :
+                    <input value={shop.name} onChange={(e) => {setCurrentShop({...shop, name: e.target.value})}}/>
+                }
             </div>
             <div>
                 <label className={styles.label}>Площадка</label><br/>
-                {shop.place}
+                {currentMode == 'view' ?
+                    shop.place
+                    :
+                    <div className={styles.choosePlace}>
+                        <button className={shop.place == 'Market' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Market'})}}>Маркет</button>
+                        <button className={shop.place == 'Wildberries' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Wildberries'})}}>Wildberries</button>
+                        <button className={shop.place == 'Ozon' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Ozon'})}}>Ozon</button>
+                    </div>
+                }
             </div>
             <div>
                 <label className={styles.label}>Токен</label>
                 <div className={styles.lineCont}>
-                    <span>********</span>
-                    <button>a</button>
+                    {currentMode == 'view' ?
+                        <span>{visToken ? shop.token : '*'.repeat(shop.token.length)}</span>
+                        :
+                        <input value={shop.token}
+                            onChange={(e) => {setCurrentShop({...shop, token: e.target.value})}}
+                            type={visToken ? 'text' : 'password'}
+                        />
+                    }
+                    <button onClick={() => {setVisToken((x) => (!x))}}>
+                        <EyeIcon className={styles.eyeIcon}/>
+                    </button>
                 </div>
             </div>
             <div>
                 <label className={styles.label}>Client ID</label>
                 <div className={styles.lineCont}>
-                    <span>**********</span>
-                    <button>a</button>
+                    {currentMode == 'view' ?
+                        <span>{visClientID ? shop.clientID : '*'.repeat(shop.clientID.length)}</span>
+                        :
+                        <input value={shop.clientID}
+                            onChange={(e) => {setCurrentShop({...shop, clientID: e.target.value})}}
+                            type={visClientID ? 'text' : 'password'}
+                        />
+                    }
+                    <button onClick={() => {setVisClientID((x) => (!x))}}>
+                        <EyeIcon className={styles.eyeIcon}/>
+                    </button>
                 </div>
             </div>
             <div>
@@ -51,5 +97,21 @@ export const ShopCard = ({shop}: Props) => {
                 <span className={styles.label}>16.04.2024</span>
             </div>
         </div>
+        {currentMode == 'edit' ?
+            <button className={cn(styles.saveButton, 'primary', 'btn')}
+                onClick={() => {
+                    changeShop(shop);
+                    setCurrentMode('view')
+                }}
+            >Сохранить изменения</button>
+            : currentMode == 'create' ?
+            <button className={cn(styles.saveButton, 'primary', 'btn')}
+                onClick={() => {
+                    createNewShop(shop);
+                    setCurrentMode('view')
+                }}
+            >Создать магазин</button>
+            : null
+        }
     </div>
 }

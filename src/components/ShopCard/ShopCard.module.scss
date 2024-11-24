@@ -1,10 +1,15 @@
 .shopCard {
     width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .innerContainer {
     display: flex;
     width: 100%;
+    height: 100%;
     max-width: 400px;
     flex-direction: column;
     gap: 12px;
@@ -12,6 +17,21 @@
     font-weight: 500;
     color: #181D1F;
     font-size: 1.66vh;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        width: 100%;
+        border-radius: 0.8vh;
+        height: 2.6vh;
+        border: 1.5px solid#181D1F33;
+        padding: 8px;
+        margin-right: 4px;
+    }
 }
 
 .lineCont {
@@ -26,4 +46,31 @@
     color: #181D1F80;
     font-size: 1.5vh;
     margin-right: 10px;
+}
+
+.editIcon {
+    height: 2.2vh;
+    width: 2.2vh;
+}
+.eyeIcon {
+    height: 1.6vh;
+    width: 1.6vh;
+}
+
+.choosePlace {
+    display: flex;
+    gap: 5px;
+    button {
+        border-radius: 24px;
+        padding: 3px 10px 3px 10px;
+        background-color: #181D1F1A;
+    }
+    .choosed {
+        background-color: #4BB9E840;
+        color: #3E75C5;
+    }
+}
+
+.saveButton {
+    width: 300px;
 }

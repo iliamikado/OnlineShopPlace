@@ -1,6 +1,8 @@
 .main {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .backAndHeader {
     font-size: 2.7vh;
@@ -9,4 +11,16 @@
     .shopsLabel {
         color: gray;
     }
+    a {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.backIcon {
+    width: 2.7vh;
+    height: 2.7vh;
 }

@@ -5,4 +5,6 @@ export interface Shop {
     status: string
     managers: string[]
     legalPerson: string
+    token: string
+    clientID: string
 }
