@@ -23,6 +23,7 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
     const [currentMode, setCurrentMode] = useState<Mode>(mode);
     const [currentShop, setCurrentShop] = useState<Shop>(shop);
     shop = currentShop;
+    console.log(shop);
 
     return <div className={cn('card', styles.shopCard)}>
         <div className={styles.innerContainer}>
@@ -70,9 +71,9 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
                 <label className={styles.label}>Client ID</label>
                 <div className={styles.lineCont}>
                     {currentMode == 'view' ?
-                        <span>{visClientID ? shop.client_id : '*'.repeat(shop.client_id.length)}</span>
+                        <span>{visClientID ? shop.client_id : '*'.repeat(shop.client_id?.length ?? 0)}</span>
                         :
-                        <input value={shop.client_id}
+                        <input value={shop.client_id ?? ''}
                             onChange={(e) => {setCurrentShop({...shop, client_id: e.target.value})}}
                             type={visClientID ? 'text' : 'password'}
                         />
