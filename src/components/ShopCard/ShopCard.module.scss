@@ -74,3 +74,20 @@
 .saveButton {
     width: 300px;
 }
+
+.linksGroup {
+    a {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin: 8px;
+        color: #343EC2;
+        svg {
+            width: 2.8vh;
+            height: 2.8vh;
+            path {
+                fill: #343EC2;
+            }
+        }
+    }
+}

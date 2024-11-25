@@ -8,3 +8,10 @@ export interface Shop {
     token: string
     clientID: string
 }
+
+export interface Card {
+    id: string
+    shopId: string
+    name: string
+    status: string
+}

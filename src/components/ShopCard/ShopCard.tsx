@@ -5,6 +5,11 @@ import EyeIcon from '@/../public/eye.svg';
 import EditIcon from '@/../public/pencil.svg';
 import { useState } from 'react';
 import { changeShop, createNewShop } from '@/service/service';
+import Link from 'next/link';
+import StorageIcon from '@/../public/storage.svg';
+import TransactionsIcon from '@/../public/transactions.svg';
+import OrdersIcon from '@/../public/orders.svg';
+import CardsIcon from '@/../public/cards.svg';
 
 type Mode = ('view' | 'edit' | 'create')
 interface Props {
@@ -96,6 +101,14 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
                 </div>
                 <span className={styles.label}>16.04.2024</span>
             </div>
+            {currentMode == 'view' ?
+                <div className={styles.linksGroup}>
+                    <Link href={`/?shopId=${shop.id}`}><StorageIcon/> склады</Link>
+                    <Link href={'/'}><TransactionsIcon/> транзакции</Link>
+                    <Link href={'/'}><OrdersIcon/> заказы</Link>
+                    <Link href={`/cards?shopId=${shop.id}`}><CardsIcon/> карточки</Link>
+                </div> : null
+            }
         </div>
         {currentMode == 'edit' ?
             <button className={cn(styles.saveButton, 'primary', 'btn')}

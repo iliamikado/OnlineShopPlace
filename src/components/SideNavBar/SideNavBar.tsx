@@ -79,7 +79,7 @@ const links: LinkItem[] = [
     {
         icon: <CardsIcon/>,
         title: 'карточки',
-        href: '/managers'
+        href: '/cards'
     },
     {
         icon: <TransactionsIcon/>,

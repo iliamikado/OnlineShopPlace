@@ -1,4 +1,4 @@
-import { Shop } from "./models";
+import { Card, Shop } from "./models";
 
 export function getShops(): Promise<Shop[]> {
     return new Promise((res) => {
@@ -41,6 +41,12 @@ export function emptyShop(): Shop {
     }
 }
 
+export function getCards(): Promise<Card[]> {
+    return new Promise((res) => {
+        res(cards);
+    })
+}
+
 const shops: Shop[] = [
     {
         id: '1',
@@ -71,5 +77,44 @@ const shops: Shop[] = [
         legalPerson: 'bbb',
         token: 'aaaaaaaaaa',
         clientID: 'aaaaaaaaaa',
+    }
+]
+
+const cards: Card[] = [
+    {
+        id: '1',
+        shopId: '1',
+        name: 'Card 1.1',
+        status: 'ready'
+    },
+    {
+        id: '2',
+        shopId: '1',
+        name: 'Card 1.2',
+        status: 'ready'
+    },
+    {
+        id: '3',
+        shopId: '2',
+        name: 'Card 2.1',
+        status: 'ready'
+    },
+    {
+        id: '4',
+        shopId: '2',
+        name: 'Card 2.2',
+        status: 'ready'
+    },
+    {
+        id: '5',
+        shopId: '12',
+        name: 'Card 12.1',
+        status: 'ready'
+    },
+    {
+        id: '6',
+        shopId: '12',
+        name: 'Card 12.2',
+        status: 'ready'
     }
 ]
