@@ -3,7 +3,7 @@
 import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ColDef, GridReadyEvent } from 'ag-grid-community';
 import { getCards } from '@/service/service';
 import { Card } from '@/service/models';
@@ -43,17 +43,15 @@ export const CardsTable = () => {
 
     return (
         // wrapping container with theme & size
-        <Suspense>
-            <div className={cn("ag-theme-quartz", styles.tableDiv)}>
-                <AgGridReact
-                    defaultColDef={{floatingFilter: true, filter: 'agTextColumnFilter'}}
-                    rowGroupPanelShow='always'
-                    rowData={rowData}
-                    columnDefs={colDefs}
-                    rowDragManaged={true}
-                    onGridReady={onGridReady}
-                />
-            </div>
-        </Suspense>
+        <div className={cn("ag-theme-quartz", styles.tableDiv)}>
+            <AgGridReact
+                defaultColDef={{floatingFilter: true, filter: 'agTextColumnFilter'}}
+                rowGroupPanelShow='always'
+                rowData={rowData}
+                columnDefs={colDefs}
+                rowDragManaged={true}
+                onGridReady={onGridReady}
+            />
+        </div>
     )  
 }
