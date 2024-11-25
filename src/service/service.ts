@@ -118,41 +118,41 @@ const shops: Shop[] = [
     }
 ]
 
-const cards: Card[] = [
-    {
-        id: '1',
-        id_market: '1',
-        name: 'Card 1.1',
-        status: 'ready'
-    },
-    {
-        id: '2',
-        id_market: '1',
-        name: 'Card 1.2',
-        status: 'ready'
-    },
-    {
-        id: '3',
-        id_market: '2',
-        name: 'Card 2.1',
-        status: 'ready'
-    },
-    {
-        id: '4',
-        id_market: '2',
-        name: 'Card 2.2',
-        status: 'ready'
-    },
-    {
-        id: '5',
-        id_market: '12',
-        name: 'Card 12.1',
-        status: 'ready'
-    },
-    {
-        id: '6',
-        id_market: '12',
-        name: 'Card 12.2',
-        status: 'ready'
-    }
-]
+// const cards: Card[] = [
+//     {
+//         id: '1',
+//         id_market: '1',
+//         name: 'Card 1.1',
+//         status: 'ready'
+//     },
+//     {
+//         id: '2',
+//         id_market: '1',
+//         name: 'Card 1.2',
+//         status: 'ready'
+//     },
+//     {
+//         id: '3',
+//         id_market: '2',
+//         name: 'Card 2.1',
+//         status: 'ready'
+//     },
+//     {
+//         id: '4',
+//         id_market: '2',
+//         name: 'Card 2.2',
+//         status: 'ready'
+//     },
+//     {
+//         id: '5',
+//         id_market: '12',
+//         name: 'Card 12.1',
+//         status: 'ready'
+//     },
+//     {
+//         id: '6',
+//         id_market: '12',
+//         name: 'Card 12.2',
+//         status: 'ready'
+//     }
+// ]

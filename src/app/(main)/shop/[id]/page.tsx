@@ -17,7 +17,7 @@ export default function Page() {
         if (params.id != 'new_shop') {  
             getShop(+params.id).then((s) => {setShop(s)})
         }
-    }, [])
+    }, [params.id])
 
     if (params.id == 'new_shop') {
         return <View mode='create' shop={emptyShop()}/>
