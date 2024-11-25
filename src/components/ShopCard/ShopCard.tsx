@@ -55,7 +55,7 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
                 <label className={styles.label}>Токен</label>
                 <div className={styles.lineCont}>
                     {currentMode == 'view' ?
-                        <span>{visToken ? shop.token : '*'.repeat(shop.token.length)}</span>
+                        <span className={styles.longSpan}>{visToken ? shop.token : '*'.repeat(shop.token.length)}</span>
                         :
                         <input value={shop.token}
                             onChange={(e) => {setCurrentShop({...shop, token: e.target.value})}}
@@ -71,7 +71,7 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
                 <label className={styles.label}>Client ID</label>
                 <div className={styles.lineCont}>
                     {currentMode == 'view' ?
-                        <span>{visClientID ? shop.client_id : '*'.repeat(shop.client_id?.length ?? 0)}</span>
+                        <span className={styles.longSpan}>{visClientID ? shop.client_id : '*'.repeat(shop.client_id?.length ?? 0)}</span>
                         :
                         <input value={shop.client_id ?? ''}
                             onChange={(e) => {setCurrentShop({...shop, client_id: e.target.value})}}
@@ -85,11 +85,11 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
             </div>
             <div>
                 <label className={styles.label}>ID управляющего</label><br/>
-                <span>99999999</span>
+                <span className={styles.longSpan}>99999999</span>
             </div>
             <div>
                 <label className={styles.label}>ID юридического лица</label><br/>
-                <span>99999999</span>
+                <span className={styles.longSpan}>99999999</span>
             </div>
             <div className={styles.lineCont}>
                 <span className={styles.label}>Отредактировано</span>

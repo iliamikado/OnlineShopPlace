@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    span {
+    .longSpan {
         width: 95%;
         overflow-wrap: break-word;
     }
