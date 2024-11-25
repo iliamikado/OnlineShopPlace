@@ -15,7 +15,7 @@ export default function Page() {
     const params = useParams<{id: string}>();
     useEffect(() => {
         if (params.id != 'new_shop') {  
-            getShop(params.id).then((s) => {setShop(s)})
+            getShop(+params.id).then((s) => {setShop(s)})
         }
     }, [])
 
@@ -40,7 +40,7 @@ const View = ({shop, mode='view'}: {shop: Shop, mode?: ('create' | 'view')}) => 
             </Link>
             <span className={styles.shopsLabel}>Магазины</span>
             <span>/</span>
-            <span className={styles.name}><b>{shop.name}</b></span>
+            <span className={styles.name}><b>{shop.market_name}</b></span>
         </div>
         <ShopCard shop={shop} mode={mode}/>
     </main>

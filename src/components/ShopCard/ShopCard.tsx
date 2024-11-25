@@ -29,24 +29,24 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
             <div className={styles.lineCont}>
                 {currentMode == 'view' ?
                     <>
-                        <h2>{shop.name}</h2>
+                        <h2>{shop.market_name}</h2>
                         <button onClick={() => {setCurrentMode('edit')}}>
                             <EditIcon className={styles.editIcon}/>
                         </button>
                     </>
                     :
-                    <input value={shop.name} onChange={(e) => {setCurrentShop({...shop, name: e.target.value})}}/>
+                    <input value={shop.market_name} onChange={(e) => {setCurrentShop({...shop, market_name: e.target.value})}}/>
                 }
             </div>
             <div>
                 <label className={styles.label}>Площадка</label><br/>
                 {currentMode == 'view' ?
-                    shop.place
+                    shop.market_type
                     :
                     <div className={styles.choosePlace}>
-                        <button className={shop.place == 'Market' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Market'})}}>Маркет</button>
-                        <button className={shop.place == 'Wildberries' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Wildberries'})}}>Wildberries</button>
-                        <button className={shop.place == 'Ozon' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, place: 'Ozon'})}}>Ozon</button>
+                        <button className={shop.market_type == 'yandex' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, market_type: 'yandex'})}}>Маркет</button>
+                        <button className={shop.market_type == 'wb' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, market_type: 'wb'})}}>Wildberries</button>
+                        <button className={shop.market_type == 'ozon' ? styles.choosed : ''} onClick={() => {setCurrentShop({...shop, market_type: 'ozon'})}}>Ozon</button>
                     </div>
                 }
             </div>
@@ -70,10 +70,10 @@ export const ShopCard = ({shop, mode = 'view'}: Props) => {
                 <label className={styles.label}>Client ID</label>
                 <div className={styles.lineCont}>
                     {currentMode == 'view' ?
-                        <span>{visClientID ? shop.clientID : '*'.repeat(shop.clientID.length)}</span>
+                        <span>{visClientID ? shop.client_id : '*'.repeat(shop.client_id.length)}</span>
                         :
-                        <input value={shop.clientID}
-                            onChange={(e) => {setCurrentShop({...shop, clientID: e.target.value})}}
+                        <input value={shop.client_id}
+                            onChange={(e) => {setCurrentShop({...shop, client_id: e.target.value})}}
                             type={visClientID ? 'text' : 'password'}
                         />
                     }

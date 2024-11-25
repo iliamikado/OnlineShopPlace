@@ -18,9 +18,9 @@ export const CardsTable = () => {
     const shopId = query.get('shopId');
     
     const [colDefs] = useState<ColDef[]>([
-        { headerName: 'Название', field: "name", rowDrag: true},
+        { headerName: 'Название', field: "name", rowDrag: true, flex: 1},
         { headerName: 'Статус', field: "status"},
-        { headerName: 'Id магазина', field: "shopId", flex: 1 },
+        { headerName: 'Id магазина', field: "id_market" },
     ]);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export const CardsTable = () => {
     const onGridReady = useCallback((params: GridReadyEvent) => {
         if (shopId) {
             params.api.setFilterModel({
-                shopId: {
+                id_market: {
                     type: 'equals',
                     filter: shopId
                 }

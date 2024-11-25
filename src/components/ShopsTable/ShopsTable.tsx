@@ -16,11 +16,11 @@ export const ShopTable = () => {
     const [rowData, setRowData] = useState<Shop[]>([]);
     
     const [colDefs] = useState<ColDef[]>([
-        { headerName: 'Название', field: "name", rowDrag: true, flex: 1, cellRenderer: LinkToShop, enableRowGroup: false},
-        { headerName: 'Площадка', field: "place" },
+        { headerName: 'Название', field: "market_name", rowDrag: true, flex: 1, cellRenderer: LinkToShop, enableRowGroup: false},
+        { headerName: 'Площадка', field: "market_type" },
         { headerName: 'Статус', field: "status" },
-        { headerName: 'Управляющие', field: "managers", valueFormatter: ({value}) => (value ? value.join(', ') : '') },
-        { headerName: 'Юридическое лицо', field: "legalPerson", flex: 1 }
+        // { headerName: 'Управляющие', field: "managers", valueFormatter: ({value}) => (value ? value.join(', ') : '') },
+        // { headerName: 'Юридическое лицо', field: "legalPerson", flex: 1 }
     ]);
 
     useEffect(() => {
@@ -49,6 +49,6 @@ const LinkToShop = ({data}: {data: Shop}) => {
         return null;
     }
     return <Link href={`/shop/${data.id}`}>
-        {data.name}
+        {data.market_name}
     </Link>
 }
